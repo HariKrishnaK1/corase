@@ -58,7 +58,8 @@ const CartDrawer: React.FC = () => {
                                             <Image 
                                                 src={item.image} 
                                                 alt={item.name} 
-                                                fill 
+                                                fill
+                                                sizes="96px"
                                                 className="object-contain p-2"
                                             />
                                         </div>

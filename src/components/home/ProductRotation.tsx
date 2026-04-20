@@ -138,6 +138,7 @@ const ProductCard = ({ product, index, total, progress, onSelect, isMobile }: Ca
                     src={product.image} 
                     alt={product.name}
                     fill
+                    sizes="(max-width: 768px) 65vw, 400px"
                     className="object-contain drop-shadow-[0_40px_100px_rgba(0,0,0,0.2)]"
                     priority={index < 2}
                 />

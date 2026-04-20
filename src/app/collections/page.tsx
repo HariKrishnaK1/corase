@@ -100,6 +100,7 @@ const CollectionsPage = () => {
                                     src={product.image}
                                     alt={product.name}
                                     fill
+                                    sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 20vw"
                                     className={cn(
                                         "object-contain p-6 transition-all duration-700",
                                         hoveredId === product.id ? "scale-110 rotate-1" : "scale-100"

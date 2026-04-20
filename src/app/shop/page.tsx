@@ -92,6 +92,7 @@ const ShopPage = () => {
                                     src={product.image} 
                                     alt={product.name} 
                                     fill 
+                                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                                     className="object-contain transition-all duration-1000 group-hover:scale-110 group-hover:rotate-2 p-12 drop-shadow-[0_20px_40px_rgba(0,0,0,0.1)]"
                                 />
                                 <div className="absolute inset-x-0 bottom-10 flex justify-center opacity-0 group-hover:opacity-100 transition-all duration-700 translate-y-4 group-hover:translate-y-0">

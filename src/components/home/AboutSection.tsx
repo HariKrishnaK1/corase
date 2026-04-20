@@ -20,8 +20,7 @@ export default function AboutSection() {
       ref={containerRef}
       className="relative min-h-[120vh] bg-black text-white overflow-hidden py-32 flex items-center"
     >
-      {/* Background Noise & Glow */}
-      <div className="absolute inset-0 bg-[url('/noise.png')] opacity-[0.03] pointer-events-none mix-blend-overlay" />
+      {/* Background Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[80vw] max-w-[800px] max-h-[800px] bg-[#FF9F43] rounded-full blur-[180px] opacity-10 pointer-events-none" />
 
       <div className="container mx-auto px-6 relative z-10 flex flex-col md:flex-row items-center gap-16 lg:gap-32">
@@ -65,9 +64,10 @@ export default function AboutSection() {
         <motion.div style={{ y: y2, opacity }} className="flex-1 relative w-full aspect-[4/5] md:aspect-square">
           <div className="absolute inset-0 border border-white/10 rounded-3xl overflow-hidden group">
             <Image 
-              src="/products/cyber-tee.png" // Placeholder evocative image
+              src="/products/cyber-tee.png"
               alt="Corase Fabric"
               fill
+              sizes="(max-width: 768px) 100vw, 50vw"
               className="object-cover scale-[1.02] group-hover:scale-110 transition-transform duration-[2s] ease-out opacity-40 grayscale group-hover:grayscale-0"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent pointer-events-none" />

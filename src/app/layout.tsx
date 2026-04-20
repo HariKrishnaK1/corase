@@ -40,7 +40,7 @@ export default function RootLayout({
           <div className="grain-overlay" />
           <Navbar />
           <CartDrawer />
-          <main className="relative z-0 min-h-screen">{children}</main>
+          <main className="relative min-h-screen">{children}</main>
         </CartProvider>
       </body>
     </html>

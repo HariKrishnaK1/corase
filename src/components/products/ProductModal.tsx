@@ -74,6 +74,7 @@ const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) => {
                                     src={product.image} 
                                     alt={product.name} 
                                     fill 
+                                    sizes="(max-width: 768px) 100vw, 50vw"
                                     className="object-contain drop-shadow-[0_20px_60px_rgba(0,0,0,0.1)]"
                                 />
                             </motion.div>

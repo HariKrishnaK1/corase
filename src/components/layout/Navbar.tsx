@@ -23,7 +23,7 @@ const Navbar: React.FC = () => {
 
     return (
         <nav className={cn(
-            "fixed top-0 left-0 right-0 z-[100] transition-all duration-700 ease-out px-6 py-6 lg:px-12 lg:py-8",
+            "fixed top-0 left-0 right-0 z-[200] transition-all duration-700 ease-out px-6 py-6 lg:px-12 lg:py-8",
             isScrolled ? "bg-[#FF9F43]/80 backdrop-blur-xl py-4 border-b border-white/10" : "bg-transparent"
         )}>
             <div className="max-w-screen-2xl mx-auto flex items-center justify-between">
@@ -41,8 +41,8 @@ const Navbar: React.FC = () => {
                     </motion.div>
                 </Link>
 
-                {/* Desktop Nav - INCREASED WORD SPACING */}
-                <div className="hidden md:flex items-center space-x-24 lg:space-x-32">
+                {/* Desktop Nav */}
+                <div className="hidden md:flex items-center gap-8 lg:gap-12">
                     {['HOME', 'SHOP', 'COLLECTIONS', 'ABOUT'].map((item, index) => (
                         <Link 
                             key={item} 
@@ -64,10 +64,10 @@ const Navbar: React.FC = () => {
                 </div>
 
                 {/* Icons */}
-                <div className="flex items-center space-x-10">
+                <div className="flex items-center space-x-6 lg:space-x-10">
                     <button 
                         onClick={() => setIsOpen(true)}
-                        className="group relative flex items-center space-x-3 text-white/50 hover:text-white transition-all duration-500"
+                        className="group relative flex items-center space-x-3 text-white/50 hover:text-white transition-all duration-500 z-[201] cursor-pointer"
                     >
                         <ShoppingBag size={18} className="group-hover:scale-110 transition-transform" />
                         {totalItems > 0 && (
