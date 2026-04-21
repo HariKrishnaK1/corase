@@ -70,7 +70,7 @@ const mockProducts = [
     description: "Cyberpunk inspired neon graphics on washed black cotton. Featuring high-density screen printing.",
     sizes: ["M", "L", "XL"],
     isFeatured: false,
-    isNewDrop: false
+    isNewDrop: true
   },
   {
     id: "5",
@@ -80,13 +80,13 @@ const mockProducts = [
     description: "Distressed edge detailing with tonal embroidery. A staple piece from the CORASE archive.",
     sizes: ["S", "M", "L"],
     isFeatured: false,
-    isNewDrop: false
+    isNewDrop: true
   },
   {
     id: "6",
     name: "LINEAR LOGO",
     price: 55,
-    image: cld("corase/products/tee-1"),
+    image: cld("corase/products/neon-tee"),
     description: "Horizontal stretched brand logo across the chest. Minimalist design with maximum impact.",
     sizes: ["S", "M", "L", "XL", "XXL"],
     isFeatured: false,
@@ -96,7 +96,7 @@ const mockProducts = [
     id: "7",
     name: "GHOST MASK",
     price: 80,
-    image: cld("corase/products/tee-2"),
+    image: cld("corase/products/void-tee"),
     description: "Large back graphic featuring the signature Ghost Mask motif. Premium fabric with custom tag.",
     sizes: ["L", "XL", "XXL"],
     isFeatured: false,
@@ -106,7 +106,7 @@ const mockProducts = [
     id: "8",
     name: "NEO TOKYO STREET TEE",
     price: 70,
-    image: cld("corase/products/tee-3"),
+    image: cld("corase/products/archive-tee"),
     description: "Oversized fit with neon tokyo graphics on the back. Reflective detailing.",
     sizes: ["S", "M", "L"],
     isFeatured: false,
