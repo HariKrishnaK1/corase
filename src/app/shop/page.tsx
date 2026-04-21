@@ -10,9 +10,25 @@ import { cn } from '@/lib/utils';
 
 const categories = ['ALL', 'TSHIRTS', 'HOODIES', 'ACCESSORIES'];
 
+const cld = (name: string) =>
+    `https://res.cloudinary.com/dg0juhz7e/image/upload/f_auto,q_auto,w_800/${name}`;
+
+const FALLBACK: Product[] = [
+    { id:'1', name:'CYBERPUNK MECHA TEE', price:85, image:cld('corase/products/cyber-tee'), description:'Jet black oversized tee.', color:'#FF9F43', variants:[{size:'M',stock:10}], sizes:['S','M','L','XL'], isNewDrop:true, isFeatured:true },
+    { id:'2', name:'ACID WASH GOTHIC TEE', price:75, image:cld('corase/products/acid-tee'), description:'Acid wash gothic tee.', color:'#FF9F43', variants:[{size:'M',stock:10}], sizes:['M','L','XL'], isNewDrop:true, isFeatured:true },
+    { id:'3', name:'VOID TEE', price:65, image:cld('corase/products/void-tee'), description:'Minimal void tee.', color:'#FF9F43', variants:[{size:'M',stock:10}], sizes:['S','M','L','XL'], isNewDrop:false, isFeatured:false },
+    { id:'4', name:'NEON OVERLOAD', price:75, image:cld('corase/products/neon-tee'), description:'Neon cyberpunk tee.', color:'#FF9F43', variants:[{size:'M',stock:10}], sizes:['M','L','XL'], isNewDrop:true, isFeatured:false },
+    { id:'5', name:'ARCHIVE 01', price:60, image:cld('corase/products/archive-tee'), description:'Archive distressed tee.', color:'#FF9F43', variants:[{size:'M',stock:10}], sizes:['S','M','L'], isNewDrop:true, isFeatured:false },
+    { id:'6', name:'LINEAR LOGO', price:55, image:cld('corase/products/neon-tee'), description:'Linear logo tee.', color:'#FF9F43', variants:[{size:'M',stock:10}], sizes:['S','M','L','XL'], isNewDrop:false, isFeatured:false },
+    { id:'7', name:'GHOST MASK', price:80, image:cld('corase/products/void-tee'), description:'Ghost mask tee.', color:'#FF9F43', variants:[{size:'M',stock:10}], sizes:['L','XL'], isNewDrop:false, isFeatured:false },
+    { id:'8', name:'NEO TOKYO STREET TEE', price:70, image:cld('corase/products/archive-tee'), description:'Neo tokyo tee.', color:'#FF9F43', variants:[{size:'M',stock:10}], sizes:['S','M','L'], isNewDrop:false, isFeatured:false },
+    { id:'9', name:'VINTAGE WASH 02', price:65, image:cld('corase/products/acid-tee'), description:'Vintage wash tee.', color:'#FF9F43', variants:[{size:'M',stock:10}], sizes:['M','L','XL'], isNewDrop:false, isFeatured:false },
+    { id:'10', name:'ESSENTIAL BLANK', price:45, image:cld('corase/products/cyber-tee'), description:'Essential blank tee.', color:'#FF9F43', variants:[{size:'M',stock:10}], sizes:['S','M','L','XL'], isNewDrop:false, isFeatured:false },
+];
+
 const ShopPage = () => {
     const [activeCategory, setActiveCategory] = useState('ALL');
-    const [dbProducts, setDbProducts] = useState<Product[]>([]);
+    const [dbProducts, setDbProducts] = useState<Product[]>(FALLBACK);
     const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
     const [isLoading, setIsLoading] = useState(true);
     const [hasError, setHasError] = useState(false);
@@ -26,14 +42,13 @@ const ShopPage = () => {
                 clearTimeout(timeout);
                 if (!res.ok) throw new Error(`HTTP ${res.status}`);
                 const data = await res.json();
-                // Guard: only set if it's actually an array
-                if (Array.isArray(data)) {
+                // Guard: only set if it's actually a non-empty array
+                if (Array.isArray(data) && data.length > 0) {
                     setDbProducts(data);
-                } else {
-                    setHasError(true);
                 }
+                // If API returns empty or error, keep FALLBACK shown
             } catch {
-                setHasError(true);
+                // Keep showing fallback — don't set error
             } finally {
                 setIsLoading(false);
             }
@@ -46,20 +61,7 @@ const ShopPage = () => {
         activeCategory === 'ALL' || (p as any).category?.toUpperCase() === activeCategory || activeCategory === 'TSHIRTS'
     );
 
-    // Error state UI
-    if (hasError) {
-        return (
-            <div className="bg-[#e6ff00] min-h-screen flex items-center justify-center">
-                <div className="text-center">
-                    <p className="text-black font-black font-syncopate text-2xl uppercase italic mb-4">Restocking Soon</p>
-                    <p className="text-black/50 font-bold text-sm mb-6">Our catalog is temporarily unavailable.</p>
-                    <button onClick={() => window.location.reload()} className="bg-black text-[#e6ff00] px-8 py-3 rounded-full font-black text-xs tracking-widest uppercase hover:scale-105 transition-all">
-                        Try Again
-                    </button>
-                </div>
-            </div>
-        );
-    }
+    // No longer block render on error — fallback products always visible
 
     return (
         <div className="bg-[#e6ff00] min-h-screen pt-40 pb-20 px-6 lg:px-12 relative">
