@@ -43,7 +43,7 @@ export default function AboutPage() {
                         transition={{ duration: 0.8 }}
                         className="text-[#FF9F43] font-syncopate text-xs tracking-[0.5em] font-bold mb-8"
                     >
-                        EST. 2024 — THE CORASE STORY
+                        EST. 2026 — THE CORASE STORY
                     </motion.p>
                     <motion.h1
                         initial={{ opacity: 0, y: 40 }}
@@ -133,6 +133,69 @@ export default function AboutPage() {
                     </a>
                 </motion.div>
             </section>
+            {/* Founders Section */}
+            <section className="py-32 px-6 text-center border-t border-white/10 relative overflow-hidden">
+  
+  {/* optional glow (same as CTA) */}
+  <div className="absolute inset-0 bg-[#FF9F43] opacity-5 blur-[150px] pointer-events-none" />
+
+  <div className="relative z-10 w-full px-6">
+
+    {/* Heading */}
+    <div className="mb-14">
+      <span className="text-[#FF9F43] font-syncopate text-xs tracking-[0.5em] font-bold">
+        THE MINDS BEHIND
+      </span>
+      <h2 className="text-5xl md:text-7xl font-black font-syncopate tracking-tighter uppercase mt-4">
+        FOUNDERS
+      </h2>
+    </div>
+
+    {/* Grid */}
+    <div className="grid grid-cols-8 gap-3">
+      {[
+        { name: "Abhishek", role: "Founder & Creative Director", image: "/founders/abhishek.jpeg" },
+        { name: "Sahith", role: "Social Media Strategist", image: "/founders/sahith.jpeg" },
+        { name: "Hari krishna", role: "Web Developer", image: "/founders/harikrishna.jpeg" },
+        { name: "Vivek", role: "Data Analyst", image: "/founders/vivek.jpeg" },
+        { name: "Jeevan", role: "Web Developer", image: "/founders/jeevan.jpeg" },
+        { name: "Haritha", role: "UI/UX designer", image: "/founders/haritha.jpeg" },
+        { name: "Aashritha", role: "Social Media Manager", image: "/founders/aashritha.png" },
+        { name: "Mahesh", role: "Sales Executive", image: "/founders/mahesh.jpeg" },
+      ].map((founder, i) => (
+        <motion.div
+          key={i}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: i * 0.08 }}
+          className="text-center"
+        >
+          {/* Image */}
+          <div className="relative w-full aspect-[3/4] mb-2 overflow-hidden rounded-md">
+            <Image
+              src={founder.image}
+              alt={founder.name}
+              fill
+              className="object-cover"
+            />
+          </div>
+
+          {/* Name */}
+          <h3 className="text-[10px] font-bold tracking-widest uppercase font-syncopate">
+            {founder.name}
+          </h3>
+
+          {/* Role */}
+          <p className="text-[8px] text-white/40 tracking-wider uppercase mt-1">
+            {founder.role}
+          </p>
+        </motion.div>
+      ))}
+    </div>
+
+  </div>
+</section>
         </div>
     );
 }
