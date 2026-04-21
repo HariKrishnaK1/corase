@@ -257,15 +257,15 @@ export default function Home() {
         </section>
 
         {/* ══ 2. TRUST BADGES ════════════════════════════════════ */}
-        <section className="bg-[#161616] py-24 px-5 lg:px-16">
-          <div className="max-w-5xl mx-auto">
+        <section className="bg-[#161616] py-28 px-5 lg:px-16">
+          <div className="max-w-5xl mx-auto w-full">
             <motion.div {...fadeUp} className="text-center mb-16">
               <p className="text-xs font-black text-[#FF9F43] tracking-[0.5em] uppercase mb-4">Why CORASE</p>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black font-syncopate text-white uppercase tracking-tight">
+              <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black font-syncopate text-white uppercase tracking-tight">
                 We Got You Covered
               </h2>
             </motion.div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {TRUST_BADGES.map(({ icon: Icon, title, sub, accent }, i) => (
                 <motion.div
                   key={title}
@@ -273,7 +273,7 @@ export default function Home() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.09, duration: 0.5 }}
-                  className="flex flex-col items-center text-center bg-white/[0.03] border border-white/[0.06] rounded-2xl p-7 hover:border-white/[0.12] hover:bg-white/[0.06] transition-all duration-300 group"
+                  className="flex flex-col items-center text-center bg-white/[0.03] border border-white/[0.06] rounded-2xl p-8 hover:border-white/[0.12] hover:bg-white/[0.06] transition-all duration-300 group"
                 >
                   <div
                     className="w-16 h-16 rounded-2xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300"
@@ -281,7 +281,7 @@ export default function Home() {
                   >
                     <Icon size={28} style={{ color: accent }} />
                   </div>
-                  <h3 className="text-lg font-black text-white mb-2">{title}</h3>
+                  <h3 className="text-xl font-black text-white mb-2">{title}</h3>
                   <p className="text-sm text-white/40 font-medium leading-relaxed">{sub}</p>
                 </motion.div>
               ))}
@@ -298,17 +298,17 @@ export default function Home() {
         </section>
 
         {/* ══ 4. SHOP CATEGORIES ════════════════════════════════ */}
-        <section className="bg-[#111] py-20 px-5 lg:px-16">
-          <div className="max-w-5xl mx-auto">
-            <motion.div {...fadeUp} className="text-center mb-12">
+        <section className="bg-[#111] py-24 px-5 lg:px-16">
+          <div className="max-w-5xl mx-auto w-full">
+            <motion.div {...fadeUp} className="text-center mb-14">
               <p className="text-xs font-black text-[#FF9F43] tracking-[0.5em] uppercase mb-4">Browse by Style</p>
-              <h2 className="text-3xl sm:text-4xl font-black font-syncopate text-white uppercase tracking-tight mb-2">
+              <h2 className="text-3xl sm:text-5xl font-black font-syncopate text-white uppercase tracking-tight mb-3">
                 Shop Categories
               </h2>
               <p className="text-white/35 text-base font-medium">Find your perfect style from our curated collections</p>
             </motion.div>
 
-            <div className="grid grid-cols-3 sm:grid-cols-6 gap-4">
+            <div className="grid grid-cols-3 sm:grid-cols-6 gap-5">
               {CATEGORIES.map((cat, i) => (
                 <motion.div
                   key={cat.label}
@@ -318,7 +318,7 @@ export default function Home() {
                   transition={{ delay: i * 0.07, duration: 0.4 }}
                 >
                   <Link href={cat.href}>
-                    <div className={`bg-gradient-to-b ${cat.bg} border ${cat.border} rounded-2xl p-4 flex flex-col items-center justify-center gap-3 hover:scale-[1.06] hover:shadow-lg transition-all duration-300 aspect-square cursor-pointer`}>
+                    <div className={`bg-gradient-to-b ${cat.bg} border ${cat.border} rounded-2xl p-5 flex flex-col items-center justify-center gap-3 hover:scale-[1.06] hover:shadow-lg transition-all duration-300 aspect-square cursor-pointer`}>
                       <span className="text-3xl sm:text-4xl">{cat.emoji}</span>
                       <span className="text-xs sm:text-sm font-bold text-white/90 text-center leading-tight">{cat.label}</span>
                     </div>
@@ -327,7 +327,7 @@ export default function Home() {
               ))}
             </div>
 
-            <div className="text-center mt-8">
+            <div className="text-center mt-10">
               <Link href="/shop" className="inline-flex items-center gap-2 text-sm text-white/40 font-bold hover:text-white transition-colors">
                 View All Products <ArrowRight size={14} />
               </Link>
@@ -336,25 +336,26 @@ export default function Home() {
         </section>
 
         {/* ══ 5. NEW ARRIVALS — full page ══════════════════════════ */}
-        <section className="min-h-screen bg-white flex items-center py-24 px-5 lg:px-16">
+        <section className="min-h-screen bg-white flex items-center py-28 px-5 lg:px-16">
           <div className="max-w-6xl mx-auto w-full">
-            <motion.div {...fadeUp} className="flex items-end justify-between mb-14">
-              <div>
-                <p className="text-sm font-black text-[#FF9F43] tracking-[0.4em] uppercase mb-3 flex items-center gap-2">
-                  <Zap size={14} /> Just Dropped
-                </p>
-                <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black font-syncopate text-gray-900 uppercase tracking-tight leading-none">
-                  New<br />Arrivals
-                </h2>
-              </div>
-              <Link href="/shop?filter=new" className="hidden sm:flex items-center gap-2 text-base text-gray-400 font-bold hover:text-gray-900 transition-colors pb-2">
-                View All <ArrowRight size={16} />
-              </Link>
+            <motion.div {...fadeUp} className="text-center mb-16">
+              <p className="text-sm font-black text-[#FF9F43] tracking-[0.4em] uppercase mb-4 flex items-center justify-center gap-2">
+                <Zap size={14} /> Just Dropped
+              </p>
+              <h2 className="text-4xl sm:text-6xl lg:text-7xl font-black font-syncopate text-gray-900 uppercase tracking-tight leading-none mb-4">
+                New Arrivals
+              </h2>
+              <p className="text-gray-400 text-lg font-medium">Fresh off the press. Limited stock.</p>
             </motion.div>
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-8">
               {(newDrops.length > 0 ? newDrops : allProducts.slice(0, 4)).map(p => (
                 <ProductCard key={p.id} product={p} onSelect={p => setSelectedProduct(p)} />
               ))}
+            </div>
+            <div className="text-center mt-12">
+              <Link href="/shop?filter=new" className="inline-flex items-center gap-2 bg-gray-900 text-white px-8 py-4 rounded-2xl font-black text-sm tracking-widest uppercase hover:bg-gray-700 transition-all duration-300">
+                View All New Drops <ArrowRight size={16} />
+              </Link>
             </div>
           </div>
         </section>
@@ -389,19 +390,19 @@ export default function Home() {
         </section>
 
         {/* ══ 7. UPCOMING DROPS ══════════════════════════════════ */}
-        <section className="bg-[#0a0a0a] py-20 px-5 lg:px-16">
-          <div className="max-w-5xl mx-auto">
-            <motion.div {...fadeUp} className="text-center mb-12">
+        <section className="bg-[#0a0a0a] py-28 px-5 lg:px-16">
+          <div className="max-w-5xl mx-auto w-full">
+            <motion.div {...fadeUp} className="text-center mb-16">
               <p className="text-xs font-black text-[#FF9F43] tracking-[0.5em] uppercase mb-4 flex items-center justify-center gap-2">
                 <Clock size={12} /> Coming Soon
               </p>
-              <h2 className="text-3xl sm:text-4xl font-black font-syncopate text-white uppercase tracking-tight mb-2">
+              <h2 className="text-3xl sm:text-5xl font-black font-syncopate text-white uppercase tracking-tight mb-3">
                 Upcoming Drops
               </h2>
               <p className="text-white/35 text-base font-medium">Hover to get a sneak peek — be the first to know</p>
             </motion.div>
 
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-6">
               <UpcomingCard name="BRUTAL CORE TEE" price={95} eta="May 2026" />
               <UpcomingCard name="PHANTOM DROP 01" price={110} eta="May 2026" />
               <UpcomingCard name="CHROME SERIAL 02" price={85} eta="Jun 2026" />
@@ -413,11 +414,11 @@ export default function Home() {
         </section>
 
         {/* ══ 8. TESTIMONIALS — full page ══════════════════════════ */}
-        <section className="min-h-screen bg-[#0d0d0d] flex items-center py-24 px-5 lg:px-16">
+        <section className="min-h-screen bg-[#0d0d0d] flex items-center py-28 px-5 lg:px-16">
           <div className="max-w-6xl mx-auto w-full">
-            <motion.div {...fadeUp} className="text-center mb-14">
-              <p className="text-sm font-black text-[#FF9F43] tracking-[0.4em] uppercase mb-3">Social Proof</p>
-              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black font-syncopate text-white uppercase tracking-tight leading-none">
+            <motion.div {...fadeUp} className="text-center mb-16">
+              <p className="text-sm font-black text-[#FF9F43] tracking-[0.4em] uppercase mb-4">Social Proof</p>
+              <h2 className="text-4xl sm:text-6xl lg:text-7xl font-black font-syncopate text-white uppercase tracking-tight leading-none">
                 What Customers<br />Say
               </h2>
               <div className="flex items-center justify-center gap-2 mt-6">
@@ -426,7 +427,7 @@ export default function Home() {
               </div>
             </motion.div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {TESTIMONIALS.map((t, i) => (
                 <motion.div
                   key={t.name}

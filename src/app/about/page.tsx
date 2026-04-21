@@ -36,7 +36,7 @@ export default function AboutPage() {
                 <div className="absolute inset-0 bg-[#FF9F43] opacity-5 blur-[200px] rounded-full scale-150 pointer-events-none" />
                 <div className="absolute inset-0 bg-[url('/products/cyber-tee.png')] bg-center bg-cover opacity-5 grayscale pointer-events-none" />
 
-                <div className="relative z-10 text-center max-w-4xl mx-auto px-6">
+                <div className="relative z-10 text-center max-w-4xl mx-auto px-6 pt-24">
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
