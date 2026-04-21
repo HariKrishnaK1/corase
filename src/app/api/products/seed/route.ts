@@ -11,20 +11,19 @@ export async function POST() {
     await Product.deleteMany({});
 
     // Map mock data to our new schema structure
-    const seedData = mockProducts.map((p, index) => {
-      // Simulate "Out of Stock" for product 3 ("ARCHIVE 01")
+    const seedData = mockProducts.map((p) => {
       const isOutOfStock = p.id === "3";
-      // Simulate "Low Stock" for product 5 ("GHOST MASK")
-      const stockAmount = isOutOfStock ? 0 : p.id === "5" ? 2 : 50;
+      const stockAmount = isOutOfStock ? 0 : 50;
 
       return {
         id: p.id,
-        title: p.name, // Our schema uses title
+        title: p.name,
         price: p.price,
         description: p.description,
-        images: [p.image], // Mock uses single image string, schema uses array
-        isNewDrop: index < 2, // Make the first two products "New Drop"
-        variants: p.sizes.map((size) => ({
+        images: [p.image],
+        isNewDrop: p.isNewDrop ?? false,
+        isFeatured: p.isFeatured ?? false,
+        variants: (p.sizes ?? []).map((size) => ({
           size,
           stock: stockAmount,
         })),
