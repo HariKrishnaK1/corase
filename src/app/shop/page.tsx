@@ -14,23 +14,52 @@ const ShopPage = () => {
     const [activeCategory, setActiveCategory] = useState('ALL');
     const [dbProducts, setDbProducts] = useState<Product[]>([]);
     const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+    const [isLoading, setIsLoading] = useState(true);
+    const [hasError, setHasError] = useState(false);
 
     useEffect(() => {
         async function fetchProducts() {
             try {
-                const res = await fetch('/api/products');
+                const controller = new AbortController();
+                const timeout = setTimeout(() => controller.abort(), 6000);
+                const res = await fetch('/api/products', { signal: controller.signal });
+                clearTimeout(timeout);
+                if (!res.ok) throw new Error(`HTTP ${res.status}`);
                 const data = await res.json();
-                setDbProducts(data);
-            } catch (err) {
-                console.error('Failed to load products', err);
+                // Guard: only set if it's actually an array
+                if (Array.isArray(data)) {
+                    setDbProducts(data);
+                } else {
+                    setHasError(true);
+                }
+            } catch {
+                setHasError(true);
+            } finally {
+                setIsLoading(false);
             }
         }
         fetchProducts();
     }, []);
 
-    const filteredProducts = activeCategory === 'ALL' 
-        ? dbProducts 
-        : dbProducts.filter(p => (p.category || 'TSHIRTS').toUpperCase() === activeCategory);
+    // Guard: always an array, filter safely
+    const filteredProducts = (Array.isArray(dbProducts) ? dbProducts : []).filter(p =>
+        activeCategory === 'ALL' || (p as any).category?.toUpperCase() === activeCategory || activeCategory === 'TSHIRTS'
+    );
+
+    // Error state UI
+    if (hasError) {
+        return (
+            <div className="bg-[#e6ff00] min-h-screen flex items-center justify-center">
+                <div className="text-center">
+                    <p className="text-black font-black font-syncopate text-2xl uppercase italic mb-4">Restocking Soon</p>
+                    <p className="text-black/50 font-bold text-sm mb-6">Our catalog is temporarily unavailable.</p>
+                    <button onClick={() => window.location.reload()} className="bg-black text-[#e6ff00] px-8 py-3 rounded-full font-black text-xs tracking-widest uppercase hover:scale-105 transition-all">
+                        Try Again
+                    </button>
+                </div>
+            </div>
+        );
+    }
 
     return (
         <div className="bg-[#e6ff00] min-h-screen pt-40 pb-20 px-6 lg:px-12 relative">
@@ -118,7 +147,14 @@ const ShopPage = () => {
                     ))}
                 </div>
 
-                {filteredProducts.length === 0 && (
+                {isLoading && (
+                    <div className="py-40 flex flex-col items-center justify-center">
+                        <div className="w-10 h-10 border-2 border-black/20 border-t-black rounded-full animate-spin mb-4" />
+                        <p className="text-black/30 font-black tracking-[0.4em] text-xs uppercase">Loading Collection...</p>
+                    </div>
+                )}
+
+                {!isLoading && filteredProducts.length === 0 && (
                     <div className="py-60 text-center">
                         <p className="text-black/20 font-black tracking-[0.5em] text-xs uppercase">Restocking Soon</p>
                     </div>

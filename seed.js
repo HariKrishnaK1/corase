@@ -27,12 +27,16 @@ const ProductSchema = new mongoose.Schema(
 
 const Product = mongoose.models.Product || mongoose.model("Product", ProductSchema);
 
+// Cloudinary base URL helper
+const cld = (name) =>
+  `https://res.cloudinary.com/dg0juhz7e/image/upload/f_auto,q_auto,w_800/${name}`;
+
 const mockProducts = [
   {
     id: "1",
     name: "CYBERPUNK MECHA TEE",
     price: 85,
-    image: "/products/cyber-tee.png",
+    image: cld("corase/products/cyber-tee"),
     description: "Jet black heavy cotton oversized tee. Intricate, glowing cyberpunk mecha robotic design on the back and a small minimal futuristic logo on the front.",
     sizes: ["S", "M", "L", "XL"],
     isFeatured: true,
@@ -42,7 +46,7 @@ const mockProducts = [
     id: "2",
     name: "ACID WASH GOTHIC TEE",
     price: 75,
-    image: "/products/acid-tee.png",
+    image: cld("corase/products/acid-tee"),
     description: "Acid wash dark grey/charcoal color. Large, detailed gothic metallic logo with thorny vines intertwined.",
     sizes: ["M", "L", "XL"],
     isFeatured: true,
@@ -52,7 +56,7 @@ const mockProducts = [
     id: "3",
     name: "VOID TEE",
     price: 65,
-    image: "/products/void-tee.png",
+    image: cld("corase/products/void-tee"),
     description: "Premium heavy-weight cotton tee with minimal VOID chest print. Relaxed fit for the modern silhouette.",
     sizes: ["S", "M", "L", "XL"],
     isFeatured: false,
@@ -62,7 +66,7 @@ const mockProducts = [
     id: "4",
     name: "NEON OVERLOAD",
     price: 75,
-    image: "/products/neon-tee.png",
+    image: cld("corase/products/neon-tee"),
     description: "Cyberpunk inspired neon graphics on washed black cotton. Featuring high-density screen printing.",
     sizes: ["M", "L", "XL"],
     isFeatured: false,
@@ -72,7 +76,7 @@ const mockProducts = [
     id: "5",
     name: "ARCHIVE 01",
     price: 60,
-    image: "/products/archive-tee.png",
+    image: cld("corase/products/archive-tee"),
     description: "Distressed edge detailing with tonal embroidery. A staple piece from the CORASE archive.",
     sizes: ["S", "M", "L"],
     isFeatured: false,
@@ -82,7 +86,7 @@ const mockProducts = [
     id: "6",
     name: "LINEAR LOGO",
     price: 55,
-    image: "/products/tee-1.png",
+    image: cld("corase/products/tee-1"),
     description: "Horizontal stretched brand logo across the chest. Minimalist design with maximum impact.",
     sizes: ["S", "M", "L", "XL", "XXL"],
     isFeatured: false,
@@ -92,7 +96,7 @@ const mockProducts = [
     id: "7",
     name: "GHOST MASK",
     price: 80,
-    image: "/products/tee-2.png",
+    image: cld("corase/products/tee-2"),
     description: "Large back graphic featuring the signature Ghost Mask motif. Premium fabric with custom tag.",
     sizes: ["L", "XL", "XXL"],
     isFeatured: false,
@@ -102,7 +106,7 @@ const mockProducts = [
     id: "8",
     name: "NEO TOKYO STREET TEE",
     price: 70,
-    image: "/products/tee-3.png",
+    image: cld("corase/products/tee-3"),
     description: "Oversized fit with neon tokyo graphics on the back. Reflective detailing.",
     sizes: ["S", "M", "L"],
     isFeatured: false,
@@ -112,7 +116,7 @@ const mockProducts = [
     id: "9",
     name: "VINTAGE WASH 02",
     price: 65,
-    image: "/products/acid-tee.png",
+    image: cld("corase/products/acid-tee"),
     description: "Vintage faded wash. Drop shoulder. Blank front.",
     sizes: ["M", "L", "XL"],
     isFeatured: false,
@@ -122,7 +126,7 @@ const mockProducts = [
     id: "10",
     name: "ESSENTIAL BLANK",
     price: 45,
-    image: "/products/void-tee.png",
+    image: cld("corase/products/void-tee"),
     description: "The perfect blank tee. 250gsm core spun cotton.",
     sizes: ["S", "M", "L", "XL", "XXL"],
     isFeatured: false,

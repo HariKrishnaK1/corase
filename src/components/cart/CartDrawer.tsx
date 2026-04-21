@@ -106,10 +106,14 @@ const CartDrawer: React.FC = () => {
                                         <span>${totalPrice}</span>
                                     </div>
                                 </div>
-                                <button className="w-full bg-white text-[#FF9F43] py-5 rounded-full font-black tracking-[0.4em] text-[10px] hover:scale-[1.02] active:scale-95 transition-all shadow-[0_0_30px_rgba(255,255,255,0.2)] flex items-center justify-center space-x-2 group">
+                                <a
+                                    href="/checkout"
+                                    onClick={() => setIsOpen(false)}
+                                    className="w-full bg-white text-[#FF9F43] py-5 rounded-full font-black tracking-[0.4em] text-[10px] hover:scale-[1.02] active:scale-95 transition-all shadow-[0_0_30px_rgba(255,255,255,0.2)] flex items-center justify-center space-x-2 group"
+                                >
                                     <span>PROCEED TO CHECKOUT</span>
                                     <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
-                                </button>
+                                </a>
                             </div>
                         )}
                     </motion.div>

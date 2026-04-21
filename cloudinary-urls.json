@@ -1,0 +1,58 @@
+{
+  "acid-tee.png": {
+    "publicId": "corase/products/acid-tee",
+    "originalUrl": "https://res.cloudinary.com/dg0juhz7e/image/upload/v1776746875/corase/products/acid-tee.jpg",
+    "optimisedUrl": "https://res.cloudinary.com/dg0juhz7e/image/upload/c_limit,f_auto,q_auto,w_800/v1/corase/products/acid-tee?_a=BAMAOGhK0",
+    "originalSize": "690 KB",
+    "cloudinarySize": "~690 KB"
+  },
+  "archive-tee.png": {
+    "publicId": "corase/products/archive-tee",
+    "originalUrl": "https://res.cloudinary.com/dg0juhz7e/image/upload/v1776746877/corase/products/archive-tee.jpg",
+    "optimisedUrl": "https://res.cloudinary.com/dg0juhz7e/image/upload/c_limit,f_auto,q_auto,w_800/v1/corase/products/archive-tee?_a=BAMAOGhK0",
+    "originalSize": "572 KB",
+    "cloudinarySize": "~572 KB"
+  },
+  "cyber-tee.png": {
+    "publicId": "corase/products/cyber-tee",
+    "originalUrl": "https://res.cloudinary.com/dg0juhz7e/image/upload/v1776746879/corase/products/cyber-tee.jpg",
+    "optimisedUrl": "https://res.cloudinary.com/dg0juhz7e/image/upload/c_limit,f_auto,q_auto,w_800/v1/corase/products/cyber-tee?_a=BAMAOGhK0",
+    "originalSize": "599 KB",
+    "cloudinarySize": "~599 KB"
+  },
+  "neon-tee.png": {
+    "publicId": "corase/products/neon-tee",
+    "originalUrl": "https://res.cloudinary.com/dg0juhz7e/image/upload/v1776746881/corase/products/neon-tee.jpg",
+    "optimisedUrl": "https://res.cloudinary.com/dg0juhz7e/image/upload/c_limit,f_auto,q_auto,w_800/v1/corase/products/neon-tee?_a=BAMAOGhK0",
+    "originalSize": "507 KB",
+    "cloudinarySize": "~507 KB"
+  },
+  "tee-1.png": {
+    "publicId": "corase/products/tee-1",
+    "originalUrl": "https://res.cloudinary.com/dg0juhz7e/image/upload/v1776746882/corase/products/tee-1.jpg",
+    "optimisedUrl": "https://res.cloudinary.com/dg0juhz7e/image/upload/c_limit,f_auto,q_auto,w_800/v1/corase/products/tee-1?_a=BAMAOGhK0",
+    "originalSize": "506 KB",
+    "cloudinarySize": "~506 KB"
+  },
+  "tee-2.png": {
+    "publicId": "corase/products/tee-2",
+    "originalUrl": "https://res.cloudinary.com/dg0juhz7e/image/upload/v1776746884/corase/products/tee-2.jpg",
+    "optimisedUrl": "https://res.cloudinary.com/dg0juhz7e/image/upload/c_limit,f_auto,q_auto,w_800/v1/corase/products/tee-2?_a=BAMAOGhK0",
+    "originalSize": "670 KB",
+    "cloudinarySize": "~670 KB"
+  },
+  "tee-3.png": {
+    "publicId": "corase/products/tee-3",
+    "originalUrl": "https://res.cloudinary.com/dg0juhz7e/image/upload/v1776746886/corase/products/tee-3.jpg",
+    "optimisedUrl": "https://res.cloudinary.com/dg0juhz7e/image/upload/c_limit,f_auto,q_auto,w_800/v1/corase/products/tee-3?_a=BAMAOGhK0",
+    "originalSize": "583 KB",
+    "cloudinarySize": "~583 KB"
+  },
+  "void-tee.png": {
+    "publicId": "corase/products/void-tee",
+    "originalUrl": "https://res.cloudinary.com/dg0juhz7e/image/upload/v1776746888/corase/products/void-tee.jpg",
+    "optimisedUrl": "https://res.cloudinary.com/dg0juhz7e/image/upload/c_limit,f_auto,q_auto,w_800/v1/corase/products/void-tee?_a=BAMAOGhK0",
+    "originalSize": "468 KB",
+    "cloudinarySize": "~468 KB"
+  }
+}
